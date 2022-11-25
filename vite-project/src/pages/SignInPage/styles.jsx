@@ -103,11 +103,20 @@ export const LoginInputContainer = styled.div`
 
     .idInput{
         margin-bottom:19px;
+        background-color: white;
+        color: black;
+        font-size: 20px;
     }
 
     .pwInputContainer{
         position:relative;
         margin-bottom:3px;
+    }
+
+    .eyeoff{
+        background-color: white;
+        color: black;
+        font-size: 20px;
     }
 
     .eyeoffImage{
