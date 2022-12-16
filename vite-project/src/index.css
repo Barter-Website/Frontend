@@ -68,12 +68,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-@font-face{
-  font-family:"inter";
-  src: url("./assets/static/Inter-Regular.ttf")
-}
-@font-face{
-  font-family:"inter";
-  font-weight: bold;
-  src: url("./assets/static/Inter-Bold.ttf")
-}
+
