@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as styled from './styles';
 
 
 const SignUpPage = () => {
+    const navigate = useNavigate();
+    const navigateToViewDocumentPage = () => {
+        navigate('/SignInPage');
+    }
+
     return (
         <styled.Container>
             <styled.MainImg1 />
@@ -24,7 +30,7 @@ const SignUpPage = () => {
                 <styled.FormLabel>닉네임</styled.FormLabel>
                 <styled.InputForm />
                 <styled.SignUpBtn>회원가입</styled.SignUpBtn>
-                <styled.AlreadyMember>이미 회원이신가요? <span>로그인</span></styled.AlreadyMember>
+                <styled.AlreadyMember>이미 회원이신가요? <span onClick={navigateToViewDocumentPage}>로그인</span></styled.AlreadyMember>
             </styled.SignUpBox>
         </styled.Container>
     )
