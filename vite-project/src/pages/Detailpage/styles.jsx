@@ -87,6 +87,7 @@ export const imageContainer = styled.div`
 
 export const textContainer = styled.div`
     margin-left:99px;
+    color: black;
     .textBox{
         margin-bottom:100px;
     }

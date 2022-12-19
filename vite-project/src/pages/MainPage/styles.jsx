@@ -19,7 +19,7 @@ export const Container = styled.div`
     width: 100vw;
     // max-width: 1920px;
     // min-width: 1300px;
-    height: 100vh;
+    /* height: 100vh; */
     color: black;
 `;
 
