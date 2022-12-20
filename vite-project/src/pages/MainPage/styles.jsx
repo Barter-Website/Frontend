@@ -10,6 +10,8 @@ import baby from '../../img/baby.svg';
 import addbtn from '../../img/addBtn.svg';
 import foodimg from '../../img/tomato.svg';
 import heart from '../../img/heart.png';
+import morebtn from '../../img/morebtn.svg';
+
 
 export const Container = styled.div`
     display: flex;
@@ -308,4 +310,28 @@ export const HeartIcon = styled.img.attrs({
 })`
     width: 16px;
     height: 13px;
+`;
+
+export const ViewAllProducts = styled.div`
+    font-family: 'OpenSans-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #787878;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 200px;
+`;
+
+export const MoreBtn = styled.img.attrs({
+    src: morebtn,
+})`
+    width: 8px;
+    height: 8px;
+    margin-top: 11px;
 `;
