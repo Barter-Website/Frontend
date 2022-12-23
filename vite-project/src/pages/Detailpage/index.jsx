@@ -11,24 +11,30 @@ import otherProductImage from '../../assets/otherProductImage.png'
 import arrowLeft from '../../assets/arrowLeft.png'
 import arrowRight from '../../assets/arrowRight.png'
 
+import Header from '../../components/Header';
+import Category from '../../components/Category';
+
 const DetailPage = () => {
     return(
         <styled.container>
-            <styled.headerContainer>
+            {/* <styled.headerContainer>
                 <styled.logoImage src={logo}/>
                 <styled.customInput></styled.customInput>
                 <styled.hearderButton><styled.headerButtonImage className='user' src={user}/></styled.hearderButton>
                 <styled.hearderButton><styled.headerButtonImage className='bucket' src={bucket}/></styled.hearderButton>
                 <styled.hearderButton><styled.headerButtonImage className='heart'src={heart}/></styled.hearderButton>
-            </styled.headerContainer>
+            </styled.headerContainer> */}
 
-            <styled.navContainer>
+            {/* <styled.navContainer>
                 <styled.navButton>HOME</styled.navButton>
                 <styled.navButton>CHATS</styled.navButton>
                 <styled.navButton>ABOUT US</styled.navButton>
                 <styled.navButton>COMMUNITY</styled.navButton>
                 <styled.navButton>MY PAGE</styled.navButton>
-            </styled.navContainer>
+            </styled.navContainer> */}
+            
+            <Header />
+            <Category />
 
             <styled.bodyContainer>
                 <styled.imageContainer>
