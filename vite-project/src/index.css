@@ -107,6 +107,13 @@ button:focus-visible {
 }
 
 @font-face {
+  font-family: 'OpenSans-Bold';
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/OpenSans-Bold.ttf");
+}
+
+@font-face {
   font-family: 'JosefinSans-Bold';
   font-style: normal;
   font-weight: 600;
