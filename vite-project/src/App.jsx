@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import ChattingPage from './pages/ChattingPage';
 
 import SignUpPage from './pages/SignUpPage';
 import SignInPage from './pages/SignInPage';
 import DetailPage from './pages/Detailpage';
 import MainPage from './pages/MainPage';
+import MyPage from './pages/MyPage';
 import ChattingPage from './pages/ChattingPage';
 
 const App = () => {
@@ -24,6 +25,9 @@ const App = () => {
         
         {/* 메인페이지 */}
         <Route path="/mainpage" element={<MainPage />} />
+
+        {/* 마이페이지 */}
+        <Route path="/mypage" element={<MyPage />} />
         
         {/* 채팅페이지 */}
         <Route path="/chattingpage" element={<ChattingPage />} />
