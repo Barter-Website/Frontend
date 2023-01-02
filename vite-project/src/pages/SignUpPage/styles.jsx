@@ -38,6 +38,7 @@ export const SignUpBox = styled.div`
 
     background: rgba(155, 167, 179, 0.21);
     border-radius: 15px;
+    margin-top: 110px;
     margin-left: 380px;
     padding: 0 0 0 82px;
     

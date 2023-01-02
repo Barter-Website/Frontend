@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as styled from './styles';
 
+import Header from '../../components/Header';
+import Category from '../../components/Category';
+
 const MainPage = () => {
     const ProductItem = () => {
         return(
@@ -24,6 +27,8 @@ const MainPage = () => {
 
     return(
         <styled.Container>
+            <Header />
+            <Category />
             <styled.CategoryBox>
                 <styled.CategoryBoxHeader>
                     <span>Category</span>
@@ -87,6 +92,10 @@ const MainPage = () => {
                 <ProductItem />
                 <ProductItem />
             </styled.RecentlyProductList>
+            <styled.ViewAllProducts>
+                <span>View All Products</span>
+                <styled.MoreBtn />
+            </styled.ViewAllProducts>
         </styled.Container>
     )
 }

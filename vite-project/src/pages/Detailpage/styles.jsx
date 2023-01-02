@@ -74,6 +74,7 @@ export const navButton = styled.button`
 export const bodyContainer = styled.div`
     display:flex;
     margin-bottom:253px;
+    color: black;
 `;
 
 export const imageContainer = styled.div`
@@ -142,6 +143,7 @@ export const footerContainer = styled.div`
         margin-left:60px;
         font-size:32px;
     }
+    color: black;
 `;
 export const footerImageContainer = styled.div`
     display:flex;
