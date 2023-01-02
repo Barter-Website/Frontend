@@ -6,7 +6,7 @@ import SignInPage from './pages/SignInPage';
 import DetailPage from './pages/Detailpage';
 import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
-import ChattingPage from './pages/ChattingPage';
+import PostPage from './pages/PostPage';
 
 const App = () => {
   return (
@@ -30,6 +30,9 @@ const App = () => {
         
         {/* 채팅페이지 */}
         <Route path="/chattingpage" element={<ChattingPage />} />
+
+        {/* 등록페이지 */}
+        <Route path="/postpage" element={<PostPage />} />
 
       </Routes>
     </BrowserRouter>
