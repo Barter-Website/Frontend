@@ -5,14 +5,28 @@ import * as styled from './styles';
 import Header from '../../components/Header';
 import Category from '../../components/Category';
 import data from "../../pages/MainPage/data.json";
+import { useEffect } from 'react';
+
 
 
 const MainPage = () => {
+    const [datalist, setDatalist] = useState(data["products"].slice(0,10));
 
-    const ProductItemList = (product) => {
-        let datalist = data[product.product]
-        return(
+    const MoreView = () =>{
+        setDatalist(data["products"])
+    }
+
+    useEffect(()=>{
             datalist.map(product=>(
+                    <ProductItem key={product.id} name={product.name} seller={product.seller} days = {product.days}/>
+            ))
+    },[datalist])
+
+    const ProductItemList = () => {
+        console.log(datalist)
+        return(
+            datalist.map(product=>
+                    (
                     <ProductItem key={product.id} name={product.name} seller={product.seller} days = {product.days}/>
                 ))
         )
@@ -89,14 +103,11 @@ const MainPage = () => {
             </styled.SortBy>
             <styled.HrLine />
             <styled.RecentlyProductList>
-                <ProductItemList product="1"/>
+                <ProductItemList/>
             </styled.RecentlyProductList>
-            <styled.RecentlyProductList>
-                <ProductItemList product="2"/>
-            </styled.RecentlyProductList>
-            <styled.ViewAllProducts>
+            <styled.ViewAllProducts onClick={MoreView}>
                 <span>View All Products</span>
-                <styled.MoreBtn />
+                <styled.MoreBtn/>
             </styled.ViewAllProducts>
         </styled.Container>
     )

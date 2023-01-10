@@ -1,5 +1,5 @@
 {
-    "1" : [
+    "products" : [
       {
         "id": 1,
         "name": "Fresh local tomatoes",
@@ -29,9 +29,7 @@
         "name": "Fresh local tomatoes5",
         "seller": "jessica pierpoint",
         "days": "5"
-      }],
-
-      "2" : [
+      }, 
       {
         "id": 6,
         "name": "Fresh local tomatoes",
@@ -61,8 +59,7 @@
         "name": "Fresh local tomatoes10",
         "seller": "jessica pierpoint",
         "days": "5"
-      }],
-      "3" : [
+      },
         {
           "id": 11,
           "name": "Fresh local tomatoes",
@@ -92,6 +89,18 @@
           "name": "Fresh local tomatoes15",
           "seller": "jessica pierpoint",
           "days": "5"
+        },
+        {
+          "id": 16,
+          "name": "Raspberries",
+          "seller": "jessica pierpoint",
+          "days": "4"
+        },
+        {
+          "id": 17,
+          "name": "Fresh local tomatoes17",
+          "seller": "jessica pierpoint",
+          "days": "5"
         }
-    ]
+      ]
   }
