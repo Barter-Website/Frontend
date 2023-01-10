@@ -4,18 +4,30 @@ import * as styled from './styles';
 
 import Header from '../../components/Header';
 import Category from '../../components/Category';
+import data from "../../pages/MainPage/data.json";
+
 
 const MainPage = () => {
-    const ProductItem = () => {
+
+    const ProductItemList = (product) => {
+        let datalist = data[product.product]
+        return(
+            datalist.map(product=>(
+                    <ProductItem key={product.id} name={product.name} seller={product.seller} days = {product.days}/>
+                ))
+        )
+    }
+
+    const ProductItem = ({name,seller,days}) => {
         return(
             <styled.RecentlyProductItem>
                 <styled.ItemImg>
                     <styled.FoodImg />
                 </styled.ItemImg>
                 <styled.FoodName>
-                    <span>Fresh Local Tomatoes</span>
-                    <span>Jessica Pierpoint</span>
-                    <span>2 Days ago</span>
+                        <span>{name}</span>
+                        <span>{seller}</span>
+                        <span>{days} Days ago</span>
                 </styled.FoodName>
                 <styled.LikeBtn>
                     <styled.HeartIcon />
@@ -77,20 +89,10 @@ const MainPage = () => {
             </styled.SortBy>
             <styled.HrLine />
             <styled.RecentlyProductList>
-                <styled.AddItem>
-                    <styled.AddBtn />
-                </styled.AddItem>
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
+                <ProductItemList product="1"/>
             </styled.RecentlyProductList>
             <styled.RecentlyProductList>
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
+                <ProductItemList product="2"/>
             </styled.RecentlyProductList>
             <styled.ViewAllProducts>
                 <span>View All Products</span>
