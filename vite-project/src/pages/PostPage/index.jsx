@@ -42,7 +42,7 @@ const PostPage = () => {
         return(
             category.map(c =>
                 (
-                    <styled.categoryList id={c[1]} onClick={SelectProductCategory}>
+                    <styled.categoryList id={c[1]} onClick={SelectProductCategory} className={(c[1]==product)?"selected":""}>
                         <img src={c[0]}/>
                         <text>{c[1]}</text>
                     </styled.categoryList>
@@ -53,7 +53,7 @@ const PostPage = () => {
 
     const [region, setRegion] = useState("region")
     const SelectRegionCategory =(e) =>{
-        setProduct(e.target.id)
+        setRegion(e.target.id)
         console.log(e.target.id)
     }
 
@@ -63,7 +63,7 @@ const PostPage = () => {
         return(
             regionCategory.map(r =>
                 (
-                    <styled.regionCategory id={r} onClick={SelectRegionCategory}>{r}</styled.regionCategory>
+                    <styled.regionCategory id={r} onClick={SelectRegionCategory} className={(r==region)?"selected":""}>{r}</styled.regionCategory>
                     
                 ))
         )
