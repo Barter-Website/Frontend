@@ -4,103 +4,120 @@
         "id": 1,
         "name": "Fresh local tomatoes",
         "seller": "jessica pierpoint",
-        "days": "1"
+        "days": "1",
+        "like": true
       },
       {
         "id": 2,
         "name": "Heinz tomato ketchup",
         "seller": "jessica pierpoint",
-        "days": "2"
+        "days": "2",
+        "like": true
       },
       {
         "id": 3,
         "name": "Local Avocado",
         "seller": "jessica pierpoint",
-        "days": "3"
+        "days": "3",
+        "like": false
       },
       {
         "id": 4,
         "name": "Raspberries",
         "seller": "jessica pierpoint",
-        "days": "4"
+        "days": "4",
+        "like": true
       },
       {
         "id": 5,
         "name": "Fresh local tomatoes5",
         "seller": "jessica pierpoint",
-        "days": "5"
+        "days": "5",
+        "like": true
       }, 
       {
         "id": 6,
         "name": "Fresh local tomatoes",
         "seller": "jessica pierpoint",
-        "days": "1"
+        "days": "1",
+        "like": true
       },
       {
         "id": 7,
         "name": "Heinz tomato ketchup",
         "seller": "jessica pierpoint",
-        "days": "2"
+        "days": "2",
+        "like": true
       },
       {
         "id": 8,
         "name": "Local Avocado",
         "seller": "jessica pierpoint",
-        "days": "3"
+        "days": "3",
+        "like": true
       },
       {
         "id": 9,
         "name": "Raspberries",
         "seller": "jessica pierpoint",
-        "days": "4"
+        "days": "4",
+        "like": true
       },
       {
         "id": 10,
         "name": "Fresh local tomatoes10",
         "seller": "jessica pierpoint",
-        "days": "5"
+        "days": "5",
+        "like": true
       },
         {
           "id": 11,
           "name": "Fresh local tomatoes",
           "seller": "jessica pierpoint",
-          "days": "1"
+          "days": "1",
+          "like": true
         },
         {
           "id": 12,
           "name": "Heinz tomato ketchup",
           "seller": "jessica pierpoint",
-          "days": "2"
+          "days": "2",
+          "like": true
         },
         {
           "id": 13,
           "name": "Local Avocado",
           "seller": "jessica pierpoint",
-          "days": "3"
+          "days": "3",
+          "like": true
         },
         {
           "id": 14,
           "name": "Raspberries",
           "seller": "jessica pierpoint",
-          "days": "4"
+          "days": "4",
+          "like": true
         },
         {
           "id": 15,
           "name": "Fresh local tomatoes15",
           "seller": "jessica pierpoint",
-          "days": "5"
+          "days": "5",
+          "like": true
         },
         {
           "id": 16,
           "name": "Raspberries",
           "seller": "jessica pierpoint",
-          "days": "4"
+          "days": "4",
+          "like": true
         },
         {
           "id": 17,
           "name": "Fresh local tomatoes17",
           "seller": "jessica pierpoint",
-          "days": "5"
+          "days": "5",
+          "like": true
         }
       ]
   }

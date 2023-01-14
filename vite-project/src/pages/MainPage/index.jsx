@@ -5,6 +5,8 @@ import * as styled from './styles';
 import Header from '../../components/Header';
 import Category from '../../components/Category';
 import data from "../../pages/MainPage/data.json";
+import heart from "../../img/heart.png";
+import activeHeart from "../../img/activeHeart.svg";
 import { useEffect } from 'react';
 
 
@@ -32,12 +34,16 @@ const MainPage = () => {
         return (
             datalist.map(product =>
             (
-                <ProductItem key={product.id} name={product.name} seller={product.seller} days={product.days} />
+                <ProductItem key={product.id} name={product.name} seller={product.seller} days={product.days} like={product.like} />
             ))
         )
     }
 
-    const ProductItem = ({ name, seller, days }) => {
+    const toggleActive = (e) => {
+        
+    }
+
+    const ProductItem = ({ name, seller, days,like }) => {
         return (
             <styled.RecentlyProductItem>
                 <styled.ItemImg>
@@ -49,7 +55,7 @@ const MainPage = () => {
                     <span>{days} Days ago</span>
                 </styled.FoodName>
                 <styled.LikeBtn>
-                    <styled.HeartIcon />
+                    <styled.HeartIcon src={like?activeHeart:heart} onClick ={toggleActive}/>
                 </styled.LikeBtn>
             </styled.RecentlyProductItem>
         )
@@ -63,13 +69,6 @@ const MainPage = () => {
             <styled.CategoryBox>
                 <styled.CategoryBoxHeader>
                     <span>Category</span>
-                    <span>View All Categories</span>
-                    <styled.LeftBtn>
-                        <styled.Leftarrow />
-                    </styled.LeftBtn>
-                    <styled.RightBtn>
-                        <styled.Rightarrow />
-                    </styled.RightBtn>
                 </styled.CategoryBoxHeader>
                 <styled.CategoryList>
                     <styled.CategoryItem>

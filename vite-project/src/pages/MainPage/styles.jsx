@@ -40,7 +40,6 @@ export const CategoryBox = styled.div`
 `;
 
 export const CategoryBoxHeader = styled.div`
-    display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
@@ -105,7 +104,7 @@ export const CategoryList = styled.div`
     align-items: center;    
 `;
 
-export const CategoryItem = styled.div`
+export const CategoryItem = styled.button`
     width: 241px;
     height: 245px;
     left: 154px;
@@ -321,13 +320,16 @@ export const LikeBtn = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .active{
+        background-color:#000000;
+    }
 `;
 
-export const HeartIcon = styled.img.attrs({
-    src: heart,
-})`
+export const HeartIcon = styled.img`
     width: 16px;
     height: 13px;
+    cursor:pointer;
 `;
 
 export const ViewAllProducts = styled.div`
