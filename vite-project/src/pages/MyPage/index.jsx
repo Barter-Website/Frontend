@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styled from './styles';
-
+import Header from '../../components/Header/index.jsx'
 import profileImg from '../../assets/profileImg.png'
 import edit from '../../assets/edit.png'
 import otherProductImage from '../../assets/otherProductImage.png'
@@ -8,9 +8,7 @@ import arrowLeft from '../../assets/arrowLeft.png'
 import arrowRight from '../../assets/arrowRight.png'
 import exchange from '../../assets/exchange.png'
 import data from '../MyPage/data.json'
-
-import Header from '../../components/Header/index.jsx'
-import Category from '../../components/Category';
+import history from '../MyPage/history.json'
 
 const MyPage = () => {
     const [slideIndex, setSlideIndex] = useState(0);
@@ -24,7 +22,25 @@ const MyPage = () => {
                 </styled.listImage>
             ))
         )
-    }   
+    }  
+    
+    const HistoryContainerBox=()=>{
+        return (
+            history.history.map(h=>(
+                <styled.historyContainerBox>
+                    <styled.historyLeft>
+                        <img src={otherProductImage}/>
+                        <text>{h.name1}</text>
+                    </styled.historyLeft>
+                        <img className='exchange' src={exchange}/>
+                    <styled.historyRight>
+                        <text>{h.name2}</text>
+                        <img src={otherProductImage}/>
+                    </styled.historyRight>
+                </styled.historyContainerBox>
+            ))
+        )
+    } 
 
     const slideRight=()=>{
         console.log(slideIndex)
@@ -47,14 +63,13 @@ const MyPage = () => {
     return(
         <styled.container>
             <Header/>
-            <Category />
-            {/* <styled.navContainer>
+            <styled.navContainer>
                 <styled.navButton>HOME</styled.navButton>
                 <styled.navButton>CHATS</styled.navButton>
                 <styled.navButton>ABOUT US</styled.navButton>
                 <styled.navButton>COMMUNITY</styled.navButton>
                 <styled.navButton>MY PAGE</styled.navButton>
-            </styled.navContainer> */}
+            </styled.navContainer>
 
             <styled.bodyContainer>
                 <styled.infoContainer>
@@ -104,39 +119,7 @@ const MyPage = () => {
 
                 <styled.historyContainer>
                     <text className='historyTitle'>Trade History</text>
-                    <styled.historyContainerBox>
-                        <styled.historyLeft>
-                            <img src={otherProductImage}/>
-                            <text>Checked Duvet Cover Set</text>
-                        </styled.historyLeft>
-                        <img className='exchange' src={exchange}/>
-                        <styled.historyRight>
-                            <text>Checked Duvet Cover Set</text>
-                            <img src={otherProductImage}/>
-                        </styled.historyRight>
-                    </styled.historyContainerBox>
-                    <styled.historyContainerBox>
-                        <styled.historyLeft>
-                            <img src={otherProductImage}/>
-                            <text>Checked Duvet Cover Set</text>
-                        </styled.historyLeft>
-                        <img className='exchange' src={exchange}/>
-                        <styled.historyRight>
-                            <text>Checked Duvet Cover Set</text>
-                            <img src={otherProductImage}/>
-                        </styled.historyRight>
-                    </styled.historyContainerBox>
-                    <styled.historyContainerBox>
-                        <styled.historyLeft>
-                            <img src={otherProductImage}/>
-                            <text>Checked Duvet Cover Set</text>
-                        </styled.historyLeft>
-                        <img className='exchange' src={exchange}/>
-                        <styled.historyRight>
-                            <text>Checked Duvet Cover Set</text>
-                            <img src={otherProductImage}/>
-                        </styled.historyRight>
-                    </styled.historyContainerBox>
+                    <HistoryContainerBox/>
                 </styled.historyContainer>
             </styled.bodyContainer>
 
