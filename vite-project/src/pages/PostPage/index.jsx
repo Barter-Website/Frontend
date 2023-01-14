@@ -40,6 +40,19 @@ const PostPage = () => {
                         <img src={c[0]}/>
                         <text>{c[1]}</text>
                     </styled.categoryList>
+                    
+                ))
+        )
+    }
+
+    const regionCategory=["서울","경기","인천", "경북"]
+
+    const RegionCategoryList = () => {
+        return(
+            regionCategory.map(r =>
+                (
+                    <styled.regionCategory>{r}</styled.regionCategory>
+                    
                 ))
         )
     }
@@ -104,10 +117,9 @@ const PostPage = () => {
                             <CategoryList/>
                         </styled.categoryContainer>
                         <text className='title'>지역 카테고리</text>
-                        <styled.categoryContainer>
-                            <styled.regionCategory>서울</styled.regionCategory>
-                            <styled.regionCategory className='selected'>경기도</styled.regionCategory>
-                        </styled.categoryContainer>
+                        <styled.regionCategoryContainer>
+                            <RegionCategoryList/>
+                        </styled.regionCategoryContainer>
                     </styled.postForm>
                 </styled.postForms>
                 
