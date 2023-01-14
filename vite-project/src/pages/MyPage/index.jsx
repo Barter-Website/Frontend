@@ -1,28 +1,75 @@
 import React, { useState } from 'react';
 import * as styled from './styles';
-
+import Header from '../../components/Header/index.jsx'
 import profileImg from '../../assets/profileImg.png'
 import edit from '../../assets/edit.png'
 import otherProductImage from '../../assets/otherProductImage.png'
 import arrowLeft from '../../assets/arrowLeft.png'
 import arrowRight from '../../assets/arrowRight.png'
 import exchange from '../../assets/exchange.png'
-
-import Header from '../../components/Header/index.jsx'
-import Category from '../../components/Category';
+import data from '../MyPage/data.json'
+import history from '../MyPage/history.json'
 
 const MyPage = () => {
+    const [slideIndex, setSlideIndex] = useState(0);
+
+    const ProductList=()=>{
+        return (
+            data.products.map(product=>(
+                <styled.listImage key={product.name}>
+                        <img src={otherProductImage}/>
+                        <span className='otherProductName'>{product.name}</span>
+                </styled.listImage>
+            ))
+        )
+    }  
+    
+    const HistoryContainerBox=()=>{
+        return (
+            history.history.map(h=>(
+                <styled.historyContainerBox>
+                    <styled.historyLeft>
+                        <img src={otherProductImage}/>
+                        <text>{h.name1}</text>
+                    </styled.historyLeft>
+                        <img className='exchange' src={exchange}/>
+                    <styled.historyRight>
+                        <text>{h.name2}</text>
+                        <img src={otherProductImage}/>
+                    </styled.historyRight>
+                </styled.historyContainerBox>
+            ))
+        )
+    } 
+
+    const slideRight=()=>{
+        console.log(slideIndex)
+        if(slideIndex==3){
+            setSlideIndex(0);
+        }else{
+            setSlideIndex(slideIndex+1);
+        }   
+    }
+
+    const slideLeft=()=>{
+        console.log(slideIndex)
+        if(slideIndex==3 || slideIndex==0){
+            setSlideIndex(0);
+        }else{
+            setSlideIndex(slideIndex-1);
+        }   
+    }
+
     return(
         <styled.container>
             <Header/>
-            <Category />
-            {/* <styled.navContainer>
+            <styled.navContainer>
                 <styled.navButton>HOME</styled.navButton>
                 <styled.navButton>CHATS</styled.navButton>
                 <styled.navButton>ABOUT US</styled.navButton>
                 <styled.navButton>COMMUNITY</styled.navButton>
                 <styled.navButton>MY PAGE</styled.navButton>
-            </styled.navContainer> */}
+            </styled.navContainer>
 
             <styled.bodyContainer>
                 <styled.infoContainer>
@@ -52,64 +99,27 @@ const MyPage = () => {
                 </styled.infoContainer>
 
                 <styled.likeContainer>
-                    <text className='likeTitle'>Like</text>
-                    <styled.likeImageContainer>
-                        <img className='arrowLeft' src={arrowLeft}/>
-                        <styled.likeImage>
-                            <img src={otherProductImage}/>
-                            <text className='otherProductName'>Flannel Duvet Cover Set</text>
-                        </styled.likeImage>
-                        <styled.likeImage>
-                            <img src={otherProductImage}/>
-                            <text className='otherProductName'>Flannel Duvet Cover Set</text>
-                        </styled.likeImage>
-                        <styled.likeImage>
-                            <img src={otherProductImage}/>
-                            <text className='otherProductName'>Flannel Duvet Cover Set</text>
-                        </styled.likeImage>
-                        <styled.likeImage>
-                            <img src={otherProductImage}/>
-                            <text className='otherProductName'>Flannel Duvet Cover Set</text>
-                        </styled.likeImage>
-                        <img className='arrowRight'src={arrowRight}/>
-                    </styled.likeImageContainer>
+                    <span className='title'>Like</span>
+                    <styled.slideContainer>
+                        <img className='arrow' src={arrowLeft} onClick={slideLeft}/>
+                        <styled.showContainer>
+                            <styled.imageContainer  style={{
+                                transition: "all 500ms ease-in-out",
+                                transform: `translateX(${
+                                    -1 * (410 * slideIndex)}px)`,}}>
+                                <ProductList/>
+                            </styled.imageContainer>
+                        </styled.showContainer>
+                        <img className='arrow'src={arrowRight} onClick={slideRight}/>
+                    </styled.slideContainer>
                 </styled.likeContainer>
+
+
+
 
                 <styled.historyContainer>
                     <text className='historyTitle'>Trade History</text>
-                    <styled.historyContainerBox>
-                        <styled.historyLeft>
-                            <img src={otherProductImage}/>
-                            <text>Checked Duvet Cover Set</text>
-                        </styled.historyLeft>
-                        <img className='exchange' src={exchange}/>
-                        <styled.historyRight>
-                            <text>Checked Duvet Cover Set</text>
-                            <img src={otherProductImage}/>
-                        </styled.historyRight>
-                    </styled.historyContainerBox>
-                    <styled.historyContainerBox>
-                        <styled.historyLeft>
-                            <img src={otherProductImage}/>
-                            <text>Checked Duvet Cover Set</text>
-                        </styled.historyLeft>
-                        <img className='exchange' src={exchange}/>
-                        <styled.historyRight>
-                            <text>Checked Duvet Cover Set</text>
-                            <img src={otherProductImage}/>
-                        </styled.historyRight>
-                    </styled.historyContainerBox>
-                    <styled.historyContainerBox>
-                        <styled.historyLeft>
-                            <img src={otherProductImage}/>
-                            <text>Checked Duvet Cover Set</text>
-                        </styled.historyLeft>
-                        <img className='exchange' src={exchange}/>
-                        <styled.historyRight>
-                            <text>Checked Duvet Cover Set</text>
-                            <img src={otherProductImage}/>
-                        </styled.historyRight>
-                    </styled.historyContainerBox>
+                    <HistoryContainerBox/>
                 </styled.historyContainer>
             </styled.bodyContainer>
 
