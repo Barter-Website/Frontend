@@ -79,7 +79,10 @@ export const categoryList = styled.button`
     text{
         font-size:20px;
         margin-bottom:20px;
-        margin-left:20px;
+        margin:auto;
+    }
+    .selected{
+        border:1px solid #111111;
     }
 `;
 
@@ -183,11 +186,22 @@ export const categoryContainer =styled.div`
     }
 `;
 
+export const regionCategoryContainer =styled.div`
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    // flex-direction:vertical;
+    .selected{
+        background-color:#4E60FF;
+        color:#ffffff;
+    }
+`;
+
 export const regionCategory = styled.button`
     padding:12px 16px;
     border:1px solid #4E60FF;
     border-radius:8px;
-    margin-left:32px;
+    margin-left:30px;
+    width:200px;
     margin-top:35px;
     background-color:#ffffff;
     color:#4E60FF;

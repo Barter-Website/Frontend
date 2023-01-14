@@ -30,16 +30,41 @@ const PostPage = () => {
             </styled.formListContainer>
         )
     }
-    const category=[clothes,sports,device,baby,food,furniture]
+    const [product, setProduct] = useState("product")
+    const SelectProductCategory =(e) =>{
+        setProduct(e.target.id)
+        console.log(e.target.id)
+    }
+
+    const category=[[clothes,"Clothes"],[sports,"Sports / Leisure"], [device,"Degital Device"], [baby,"Baby"], [food,"Food"], [furniture, "Furniture"]]
 
     const CategoryList = () => {
         return(
             category.map(c =>
                 (
-                    <styled.categoryList>
-                        <img src={c}/>
-                        <text>Fruits & Veges</text>
+                    <styled.categoryList id={c[1]} onClick={SelectProductCategory}>
+                        <img src={c[0]}/>
+                        <text>{c[1]}</text>
                     </styled.categoryList>
+                ))
+        )
+    }
+
+
+    const [region, setRegion] = useState("region")
+    const SelectRegionCategory =(e) =>{
+        setProduct(e.target.id)
+        console.log(e.target.id)
+    }
+
+    const regionCategory=["서울","경기","인천", "경북"]
+
+    const RegionCategoryList = () => {
+        return(
+            regionCategory.map(r =>
+                (
+                    <styled.regionCategory id={r} onClick={SelectRegionCategory}>{r}</styled.regionCategory>
+                    
                 ))
         )
     }
@@ -106,10 +131,9 @@ const PostPage = () => {
                             <CategoryList/>
                         </styled.categoryContainer>
                         <text className='title'>지역 카테고리</text>
-                        <styled.categoryContainer>
-                            <styled.regionCategory>서울</styled.regionCategory>
-                            <styled.regionCategory className='selected'>경기도</styled.regionCategory>
-                        </styled.categoryContainer>
+                        <styled.regionCategoryContainer>
+                            <RegionCategoryList/>
+                        </styled.regionCategoryContainer>
                     </styled.postForm>
                 </styled.postForms>
 
