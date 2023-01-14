@@ -78,7 +78,7 @@ export const categoryList = styled.button`
     text{
         font-size:20px;
         margin-bottom:20px;
-        margin-left:20px;
+        margin:auto;
     }
 `;
 

@@ -30,15 +30,15 @@ const PostPage = () => {
             </styled.formListContainer>
         )
     }
-    const category=[clothes,sports,device,baby,food,furniture]
+    const category=[[clothes,"Clothes"],[sports,"Sports / Leisure"],[device,"Digital Device"],[baby,"Baby"],[food,"Food"],[furniture,"Furniture"]]
 
     const CategoryList = () => {
         return(
             category.map(c =>
                 (
                     <styled.categoryList>
-                        <img src={c}/>
-                        <text>Fruits & Veges</text>
+                        <img src={c[0]}/>
+                        <text>{c[1]}</text>
                     </styled.categoryList>
                 ))
         )
