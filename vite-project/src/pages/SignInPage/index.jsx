@@ -42,6 +42,7 @@ const SignInPage = () => {
     )
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+        navigateToMainPage();
         // if (response.data.data.accessToken) {
         //   localStorage.setItem('login-token', response.data.data.accessToken);
         // }
@@ -49,6 +50,7 @@ const SignInPage = () => {
       .catch(function (error) {
         console.log("1111");
         console.log(error);
+        
       });
   }
 
@@ -79,7 +81,7 @@ const SignInPage = () => {
             </div>
           </div>
           <div className='findPw'>비밀번호 찾기</div>
-          <button onClick={() => { isLogin(); navigateToMainPage();}}>로그인</button>
+          <button onClick={() => { isLogin(); }}>로그인</button>
           <div className='signUpContainer'>
             <div className='signUpQ'>아직 회원이 아니신가요?</div>
             <div className='signUp' onClick={navigateToSignUpPage}>회원가입</div>
