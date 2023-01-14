@@ -14,6 +14,8 @@ import baby from '../../img/baby.svg';
 import food from '../../img/food.svg';
 import furniture from '../../img/furniture.svg';
 
+
+
 const PostPage = () => {
     const FormList = (props) => {
         return (
@@ -94,6 +96,7 @@ const PostPage = () => {
         setShowImages(showImages.filter((_, index) => index !== id));
     };
 
+
     return (
         <styled.container>
             <Header />
@@ -102,7 +105,7 @@ const PostPage = () => {
                 <styled.formLists>
                     <styled.title>상품 등록</styled.title>
                     <FormList icon={contentIcon} formTitle={'상품명 & 내용'} formTitleE={'product name & content'} selected={true} />
-                    <FormList icon={photoIcon} formTitle={'사진'} formTitleE={'photos'} selected={false} />
+                    <FormList icon={photoIcon} formTitle={'사진'} formTitleE={'photos'} selected={false}/>
                     <FormList icon={categoryIcon} formTitle={'카테고리'} formTitleE={'category'} selected={false} />
                 </styled.formLists>
 

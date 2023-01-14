@@ -17,9 +17,11 @@ const MyPage = () => {
     const [userEmail, setUserEmail] = useState("wink");
     const [userPassword, setPassword] = useState("wink");
 
+
     const changeName=()=>{
         set(userName)
     }
+
 
     const ProductList=()=>{
         return (
