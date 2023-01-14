@@ -10,6 +10,11 @@ import { useEffect } from 'react';
 
 
 const MainPage = () => {
+    const navigate = useNavigate();
+    const navigateToPostPage = () => {
+        navigate('/postpage');
+    }
+
     const [datalist, setDatalist] = useState(data["products"].slice(0, 10));
 
     const MoreView = () => {
@@ -96,11 +101,14 @@ const MainPage = () => {
 
             <styled.RecentlyProductHeader>
                 <span>Recently Added Products</span>
+                <styled.AddProductBtn onClick={navigateToPostPage}>
+                    <span>+</span>
+                </styled.AddProductBtn>
             </styled.RecentlyProductHeader>
-            <styled.SortBy>
+            {/* <styled.SortBy>
                 <span>MOST POPULAR</span>
                 <span>RECENT</span>
-            </styled.SortBy>
+            </styled.SortBy> */}
             <styled.HrLine />
             <styled.RecentlyProductList>
                 <ProductItemList />

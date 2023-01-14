@@ -53,7 +53,7 @@ const PostPage = () => {
                     <styled.postForm>
                         <text className='title'>상품명</text>
                         <text className='titleE'>product name</text>
-                        <input></input>
+                        <input className='inputt'></input>
                         <text className='title'>내용</text>
                         <text className='titleE'>content</text>
                         <input className='contentInput'></input>
