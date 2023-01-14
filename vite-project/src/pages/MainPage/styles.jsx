@@ -198,10 +198,12 @@ export const HrLine = styled.div`
 `;
 
 export const RecentlyProductList = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 1612px;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    // width: 1612px;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
 `;
 
 export const AddItem = styled.div`
@@ -326,6 +328,8 @@ export const ViewAllProducts = styled.div`
     justify-content: center;
 
     margin-bottom: 200px;
+
+    cursor:pointer;
 `;
 
 export const MoreBtn = styled.img.attrs({

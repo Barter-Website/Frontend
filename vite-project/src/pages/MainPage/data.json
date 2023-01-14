@@ -1,0 +1,106 @@
+{
+    "products" : [
+      {
+        "id": 1,
+        "name": "Fresh local tomatoes",
+        "seller": "jessica pierpoint",
+        "days": "1"
+      },
+      {
+        "id": 2,
+        "name": "Heinz tomato ketchup",
+        "seller": "jessica pierpoint",
+        "days": "2"
+      },
+      {
+        "id": 3,
+        "name": "Local Avocado",
+        "seller": "jessica pierpoint",
+        "days": "3"
+      },
+      {
+        "id": 4,
+        "name": "Raspberries",
+        "seller": "jessica pierpoint",
+        "days": "4"
+      },
+      {
+        "id": 5,
+        "name": "Fresh local tomatoes5",
+        "seller": "jessica pierpoint",
+        "days": "5"
+      }, 
+      {
+        "id": 6,
+        "name": "Fresh local tomatoes",
+        "seller": "jessica pierpoint",
+        "days": "1"
+      },
+      {
+        "id": 7,
+        "name": "Heinz tomato ketchup",
+        "seller": "jessica pierpoint",
+        "days": "2"
+      },
+      {
+        "id": 8,
+        "name": "Local Avocado",
+        "seller": "jessica pierpoint",
+        "days": "3"
+      },
+      {
+        "id": 9,
+        "name": "Raspberries",
+        "seller": "jessica pierpoint",
+        "days": "4"
+      },
+      {
+        "id": 10,
+        "name": "Fresh local tomatoes10",
+        "seller": "jessica pierpoint",
+        "days": "5"
+      },
+        {
+          "id": 11,
+          "name": "Fresh local tomatoes",
+          "seller": "jessica pierpoint",
+          "days": "1"
+        },
+        {
+          "id": 12,
+          "name": "Heinz tomato ketchup",
+          "seller": "jessica pierpoint",
+          "days": "2"
+        },
+        {
+          "id": 13,
+          "name": "Local Avocado",
+          "seller": "jessica pierpoint",
+          "days": "3"
+        },
+        {
+          "id": 14,
+          "name": "Raspberries",
+          "seller": "jessica pierpoint",
+          "days": "4"
+        },
+        {
+          "id": 15,
+          "name": "Fresh local tomatoes15",
+          "seller": "jessica pierpoint",
+          "days": "5"
+        },
+        {
+          "id": 16,
+          "name": "Raspberries",
+          "seller": "jessica pierpoint",
+          "days": "4"
+        },
+        {
+          "id": 17,
+          "name": "Fresh local tomatoes17",
+          "seller": "jessica pierpoint",
+          "days": "5"
+        }
+      ]
+  }

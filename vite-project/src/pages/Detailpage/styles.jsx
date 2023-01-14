@@ -136,31 +136,46 @@ export const customButton3 = styled.button`
     border:1px solid #323334;
 `;
 
-export const footerContainer = styled.div`
+export const otherProductContainer = styled.div`
+    .footerTitle{
+        margin-left:155px;
+        font-size:32px;
+    }
+`;
+
+export const slideContainer = styled.div`
     margin-left:95px;
+    display:flex;
     margin-bottom:500px;
     .footerTitle{
         margin-left:60px;
         font-size:32px;
     }
+    .arrow{
+        margin-top:250px;
+        width:27px;
+        height:53px;
+        cursor:pointer;
+    }
     color: black;
 `;
 export const footerImageContainer = styled.div`
     display:flex;
-    margin-top:50px;
     .otherProductName{
         text-align:center;
     }
-    .arrow{
-        width:27px;
-        height:53px;
-        margin:auto;
-        margin-right:0px;
-        margin-left:0px;
-    }
+
 `;
+
+export const showContainer = styled.div`
+    overflow:hidden;
+    display:flex;
+    margin-top:50px;
+    width:1640px;
+    height:700px;
+`
 export const footerImage = styled.div`
-    width:382px;
+    width:380px;
     height:455px;
     margin-right:15px;
     margin-left:15px;
