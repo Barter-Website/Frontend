@@ -147,6 +147,7 @@ export const editContainer = styled.div`
     input{
         padding-left:15px;
         font-size:20px;
+    }
 `;
 
 export const likeContainer = styled.div`
