@@ -106,18 +106,21 @@ export const Mypage = styled.img.attrs({
     src: mypageicon,
 })`
     margin-left: 63px;
+    cursor:pointer;
 `;
 
 export const Basket = styled.img.attrs({
     src: basketicon,
 })`
     margin-left: 36px;
+    cursor:pointer;
 `;
 
 export const Like = styled.img.attrs({
     src: likeicon,
 })`
     margin-left: 36px;
+    cursor:pointer;
 `;
 
 export const UnderArrow = styled.img.attrs({
