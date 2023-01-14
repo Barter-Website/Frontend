@@ -156,7 +156,7 @@ export const Furniture = styled.img.attrs({
 
 export const RecentlyProductHeader = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     margin-top: 181px;
     margin-bottom: 20px;
@@ -169,23 +169,38 @@ export const RecentlyProductHeader = styled.div`
     }
 `;
 
-export const SortBy = styled.div`
+// export const SortBy = styled.div`
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+//     width: 1612px;
+
+//     > span{
+//         font-family: 'Open Sans';
+//         font-style: normal;
+//         font-weight: 600;
+//         font-size: 16px;
+//         line-height: 22px;
+//         color: #858585;
+
+//         &:nth-child(1){
+//             margin-right: 40px;
+//         }
+//     }
+// `;
+
+export const AddProductBtn = styled.button`
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    width: 1612px;
-
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: #FFC43F;
+    border-radius: 10px;
+    
     > span{
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 22px;
-        color: #858585;
-
-        &:nth-child(1){
-            margin-right: 40px;
-        }
+        color: black;
     }
 `;
 

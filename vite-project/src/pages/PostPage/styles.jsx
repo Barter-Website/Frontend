@@ -124,6 +124,10 @@ export const postForm = styled.div`
         color:#545563;
         margin-left:32px;
     }
+    .inputt{
+        background-color: white;
+        color: black;
+    }
     input{
         border-radius:8px;
         border:1px solid #C7C8D2;
@@ -136,6 +140,8 @@ export const postForm = styled.div`
     .contentInput{
         height:225px;
         width:985px;
+        background-color: white;
+        color: black;
     }
 `;
 
