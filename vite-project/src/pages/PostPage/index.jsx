@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as styled from './styles';
 
 import Header from '../../components/Header';
@@ -36,6 +36,30 @@ const PostPage = () => {
         )
     }
 
+    const [showImages, setShowImages] = useState([]);
+
+    // 이미지 상대경로 저장
+    const handleAddImages = (event) => {
+        const imageLists = event.target.files;
+        let imageUrlLists = [...showImages];
+
+        for (let i = 0; i < imageLists.length; i++) {
+            const currentImageUrl = URL.createObjectURL(imageLists[i]);
+            imageUrlLists.push(currentImageUrl);
+        }
+
+        if (imageUrlLists.length > 10) {
+            imageUrlLists = imageUrlLists.slice(0, 10);
+        }
+
+        setShowImages(imageUrlLists);
+    };
+
+    // X버튼 클릭 시 이미지 삭제
+    const handleDeleteImage = (id) => {
+        setShowImages(showImages.filter((_, index) => index !== id));
+    };
+
     return (
         <styled.container>
             <Header/>
@@ -62,8 +86,9 @@ const PostPage = () => {
                     <styled.title>사진</styled.title>
                     <styled.postForm>
                         <styled.imgInput>이미지를 추가하세요</styled.imgInput>
+                        <input type="file"></input>
                     </styled.postForm>
-                    
+
                     <styled.title>카테고리</styled.title>
                     <styled.postForm>
                         <text className='title'>상품 카테고리</text>
