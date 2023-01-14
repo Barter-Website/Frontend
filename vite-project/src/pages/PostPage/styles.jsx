@@ -58,7 +58,6 @@ export const textBox =styled.div`
 `;
 
 
-
 export const categoryList = styled.button`
     display:flex;
     background-color:transparent;
