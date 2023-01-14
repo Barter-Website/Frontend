@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import * as styled from './styles';
 
 import Header from '../../components/Header';
@@ -17,28 +18,51 @@ const MainPage = () => {
         navigate('/postpage');
     }
 
-    const [datalist, setDatalist] = useState(data["products"].slice(0, 10));
+    const [datalist, setDatalist] = useState([]);
 
     const MoreView = () => {
         setDatalist(data["products"])
     }
 
     useEffect(() => {
-        datalist.map(product => (
-            <ProductItem key={product.id} name={product.name} seller={product.seller} days={product.days} />
-        ))
-    }, [datalist])
+        const response = axios.get('http://localhost:8080/api/products', {})
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+
+                let numOfProducts = response.data.length;
+
+                // console.log(item);
+                let arr = [];
+                for (var i = 0; i < numOfProducts; i++) {
+                    let ProductInfo = {
+                        id: response.data[i].id,
+                        title: response.data[i].title,
+                        productCategory: response.data[i].productCategory,
+                        areaCategory: response.data[i].areaCategory,
+                        userName: response.data[i].user.id
+                    }
+                    arr[i] = ProductInfo;
+                }
+
+
+                setDatalist(arr)
+                // item.map(item => (<ProductItem key={item.id} title={item.title} seller={item.seller} days={item.days} />))
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
 
     const ProductItemList = () => {
         return (
             datalist.map(product =>
             (
-                <ProductItem key={product.id} id={product.id} name={product.name} seller={product.seller} days={product.days} like={product.like} />
+                <ProductItem id={product.id} title={product.title} name={product.title} seller={product.userName} category={product.areaCategory} like={product.like} />
             ))
         )
     }
 
-    const ProductItem = ({ id, name, seller, days, like }) => {
+    const ProductItem = ({ id, name, seller, category, like }) => {
         const [isLike, setLike] = useState(like)
 
         const toggleClick = () => {
@@ -53,7 +77,7 @@ const MainPage = () => {
                 <styled.FoodName>
                     <span>{name}</span>
                     <span>{seller}</span>
-                    <span>{days} Days ago</span>
+                    <span>{category}</span>
                 </styled.FoodName>
                 <styled.LikeBtn>
                     <styled.HeartIcon src={isLike ? activeHeart : heart} onClick={toggleClick} />
@@ -112,6 +136,7 @@ const MainPage = () => {
             <styled.HrLine />
             <styled.RecentlyProductList>
                 <ProductItemList />
+                {/* {arr.map(item => <ProductItemList />)} */}
             </styled.RecentlyProductList>
             <styled.ViewAllProducts onClick={MoreView}>
                 <span>View All Products</span>
