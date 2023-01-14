@@ -18,6 +18,10 @@ export const BarterMark = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:hover{
+        cursor: pointer;
+    }
 `;
 
 export const BarterIcon = styled.img.attrs({
@@ -82,6 +86,22 @@ export const SearchBox = styled.div`
     }
 `;
 
+export const SearchInput = styled.input`
+    width: 720px;
+    height: 100%;
+    outline-style: none;
+    background: #F9F9F9;
+    border: none;
+    outline: none;
+    color: black;
+    margin-left: 10px;
+    
+    font-family: 'OpenSans-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+`;
+
 export const Mypage = styled.img.attrs({
     src: mypageicon,
 })`
@@ -109,5 +129,5 @@ export const UnderArrow = styled.img.attrs({
 export const SearchIcon = styled.img.attrs({
     src: searchicon,
 })`
-    margin-left: 740px;
+    margin-left: 20px;
 `;

@@ -7,6 +7,8 @@ import photoIcon from '../../assets/photo.svg';
 import categoryIcon from '../../assets/category.svg';
 import fruitsIcon from '../../assets/fruitsIcon.svg';
 
+import Category from '../../components/Category';
+
 const PostPage = () => {
     const FormList = (props) => {
         return (
@@ -37,6 +39,7 @@ const PostPage = () => {
     return (
         <styled.container>
             <Header/>
+            <Category />
             <styled.body>
                 <styled.formLists>
                     <styled.title>상품 등록</styled.title>

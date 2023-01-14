@@ -4,18 +4,44 @@ import * as styled from './styles';
 
 import Header from '../../components/Header';
 import Category from '../../components/Category';
+import data from "../../pages/MainPage/data.json";
+import { useEffect } from 'react';
+
+
 
 const MainPage = () => {
-    const ProductItem = () => {
-        return(
+    const [datalist, setDatalist] = useState(data["products"].slice(0, 10));
+
+    const MoreView = () => {
+        setDatalist(data["products"])
+    }
+
+    useEffect(() => {
+        datalist.map(product => (
+            <ProductItem key={product.id} name={product.name} seller={product.seller} days={product.days} />
+        ))
+    }, [datalist])
+
+    const ProductItemList = () => {
+        console.log(datalist)
+        return (
+            datalist.map(product =>
+            (
+                <ProductItem key={product.id} name={product.name} seller={product.seller} days={product.days} />
+            ))
+        )
+    }
+
+    const ProductItem = ({ name, seller, days }) => {
+        return (
             <styled.RecentlyProductItem>
                 <styled.ItemImg>
                     <styled.FoodImg />
                 </styled.ItemImg>
                 <styled.FoodName>
-                    <span>Fresh Local Tomatoes</span>
-                    <span>Jessica Pierpoint</span>
-                    <span>2 Days ago</span>
+                    <span>{name}</span>
+                    <span>{seller}</span>
+                    <span>{days} Days ago</span>
                 </styled.FoodName>
                 <styled.LikeBtn>
                     <styled.HeartIcon />
@@ -25,7 +51,7 @@ const MainPage = () => {
     }
 
 
-    return(
+    return (
         <styled.Container>
             <Header />
             <Category />
@@ -77,22 +103,9 @@ const MainPage = () => {
             </styled.SortBy>
             <styled.HrLine />
             <styled.RecentlyProductList>
-                <styled.AddItem>
-                    <styled.AddBtn />
-                </styled.AddItem>
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
+                <ProductItemList />
             </styled.RecentlyProductList>
-            <styled.RecentlyProductList>
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-            </styled.RecentlyProductList>
-            <styled.ViewAllProducts>
+            <styled.ViewAllProducts onClick={MoreView}>
                 <span>View All Products</span>
                 <styled.MoreBtn />
             </styled.ViewAllProducts>
