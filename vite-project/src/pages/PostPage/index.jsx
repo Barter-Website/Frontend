@@ -6,6 +6,7 @@ import contentIcon from '../../assets/content.svg';
 import photoIcon from '../../assets/photo.svg';
 import categoryIcon from '../../assets/category.svg';
 import fruitsIcon from '../../assets/fruitsIcon.svg';
+import Category from '../../components/Category';
 
 const PostPage = () => {
     const FormList = (props) => {
@@ -23,14 +24,17 @@ const PostPage = () => {
             </styled.formListContainer>
         )
     }
+    const category=[clothes,sports,device,baby,food,furniture]
 
-    const CategoryList = (props) => {
-        return (
-            <styled.categoryList>
-                <img src={fruitsIcon}/>
-                <text>Fruits & Veges</text>
-            </styled.categoryList>
-
+    const CategoryList = () => {
+        return(
+            category.map(c =>
+                (
+                    <styled.categoryList>
+                        <img src={c}/>
+                        <text>Fruits & Veges</text>
+                    </styled.categoryList>
+                ))
         )
     }
 
@@ -60,20 +64,11 @@ const PostPage = () => {
                     <styled.postForm>
                         <styled.imgInput>이미지를 추가하세요</styled.imgInput>
                     </styled.postForm>
-                    
+
                     <styled.title>카테고리</styled.title>
                     <styled.postForm>
                         <text className='title'>상품 카테고리</text>
                         <styled.categoryContainer>
-                            <CategoryList/>
-                            <CategoryList/>
-                            <CategoryList/>
-                            <CategoryList/>
-                        </styled.categoryContainer>
-                        <styled.categoryContainer>
-                            <CategoryList/>
-                            <CategoryList/>
-                            <CategoryList/>
                             <CategoryList/>
                         </styled.categoryContainer>
                         <text className='title'>지역 카테고리</text>
