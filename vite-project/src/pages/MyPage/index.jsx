@@ -13,6 +13,13 @@ import Category from '../../components/Category';
 
 const MyPage = () => {
     const [slideIndex, setSlideIndex] = useState(0);
+    const [userName, setUserName] = useState("wink");
+    const [userEmail, setUserEmail] = useState("wink");
+    const [userPassword, setPassword] = useState("wink");
+
+    const changeName=()=>{
+        set(userName)
+    }
 
     const ProductList=()=>{
         return (
@@ -75,16 +82,16 @@ const MyPage = () => {
                     </styled.profileImgContainer>
                     <styled.editContainer>
                         <div className='nameEditBox'>
-                            <text className='userName'>Wink</text>
-                            <img src={edit}/>
+                            <text className='userName'>{userName}</text>
+                            <img src={edit} onClick={changeName}/>
                         </div>
                         <div className='editBox'>
                             <text className='inputTitle'>Email:</text>
-                            <input className='editInput'/>
+                            <input className='editInput' defaultValue={userEmail}/>
                         </div>
                         <div className='editBox'>
                             <text className='inputTitle'>Password:</text>
-                            <input className='editInput'/>
+                            <input className='editInput' defaultValue={userPassword}/>
                         </div>
                         <div className='editBox'>
                             <text className='inputTitle'>Password Check:</text>
@@ -108,10 +115,6 @@ const MyPage = () => {
                         <img className='arrow'src={arrowRight} onClick={slideRight}/>
                     </styled.slideContainer>
                 </styled.likeContainer>
-
-
-
-
                 <styled.historyContainer>
                     <text className='historyTitle'>Trade History</text>
                     <HistoryContainerBox/>

@@ -80,6 +80,9 @@ export const categoryList = styled.button`
         margin-bottom:20px;
         margin:auto;
     }
+    .selected{
+        border:1px solid #111111;
+    }
 `;
 
 export const formLists = styled.div`
