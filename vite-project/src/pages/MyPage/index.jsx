@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styled from './styles';
-import Header from '../../components/Header/index.jsx'
+
 import profileImg from '../../assets/profileImg.png'
 import edit from '../../assets/edit.png'
 import otherProductImage from '../../assets/otherProductImage.png'
@@ -8,17 +8,21 @@ import arrowLeft from '../../assets/arrowLeft.png'
 import arrowRight from '../../assets/arrowRight.png'
 import exchange from '../../assets/exchange.png'
 
+import Header from '../../components/Header/index.jsx'
+import Category from '../../components/Category';
+
 const MyPage = () => {
     return(
         <styled.container>
             <Header/>
-            <styled.navContainer>
+            <Category />
+            {/* <styled.navContainer>
                 <styled.navButton>HOME</styled.navButton>
                 <styled.navButton>CHATS</styled.navButton>
                 <styled.navButton>ABOUT US</styled.navButton>
                 <styled.navButton>COMMUNITY</styled.navButton>
                 <styled.navButton>MY PAGE</styled.navButton>
-            </styled.navContainer>
+            </styled.navContainer> */}
 
             <styled.bodyContainer>
                 <styled.infoContainer>

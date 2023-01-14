@@ -3,6 +3,8 @@ import mainimg1 from "../../img/mainImg1.png";
 import mainimg2 from "../../img/mainImg2.png";
 
 export const Container = styled.div`
+    width: 1920px;
+    height: 1080px;
     display: flex;
     align-items: center;
     justify-content: center;

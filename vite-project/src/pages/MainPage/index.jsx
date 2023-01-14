@@ -6,9 +6,18 @@ import Header from '../../components/Header';
 import Category from '../../components/Category';
 
 const MainPage = () => {
+    const navigate = useNavigate();
+    const navigateToPostPage = () => {
+        navigate('/postpage');
+    }
+    const navigateToDetailPage = () => {
+        navigate('/detailpage');
+    }
+
+
     const ProductItem = () => {
         return(
-            <styled.RecentlyProductItem>
+            <styled.RecentlyProductItem onClick={navigateToDetailPage}>
                 <styled.ItemImg>
                     <styled.FoodImg />
                 </styled.ItemImg>
@@ -77,7 +86,7 @@ const MainPage = () => {
             </styled.SortBy>
             <styled.HrLine />
             <styled.RecentlyProductList>
-                <styled.AddItem>
+                <styled.AddItem onClick={navigateToPostPage}>
                     <styled.AddBtn />
                 </styled.AddItem>
                 <ProductItem />

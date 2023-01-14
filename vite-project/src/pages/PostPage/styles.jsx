@@ -7,6 +7,7 @@ export const container  = styled.div`
 export const body = styled.div`
     display:flex;
     flex-direction:vertical;
+    color: black;
 `;
 
 export const formListContainer= styled.div`
@@ -58,9 +59,9 @@ export const textBox =styled.div`
 
 
 export const categoryList = styled.div`
-    display:flex
-    flex-direction:column;
-    text-align:center;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
     width:218px;
     height:170px;
     border:1px solid #E6E6E6;

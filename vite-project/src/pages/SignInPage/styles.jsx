@@ -158,7 +158,11 @@ export const LoginInputContainer = styled.div`
     .signUp{
         margin-left:8px;
         display:inline;
-
+        cursor: pointer;
         color:#4299E1;
+
+        &:hover{
+            text-decoration: underline;
+        }
     }
 `;
