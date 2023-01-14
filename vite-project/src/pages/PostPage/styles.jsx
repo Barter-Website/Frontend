@@ -69,6 +69,7 @@ export const categoryList = styled.button`
     border-radius:18px;
     margin-left:60px;
     margin-top:30px;
+    color: black;
     cursor:pointer;
     img{
         width:35px;
