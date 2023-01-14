@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as styled from './styles';
+import axios from 'axios';
 
 import Header from '../../components/Header';
 import contentIcon from '../../assets/content.svg';
@@ -17,6 +18,7 @@ import furniture from '../../img/furniture.svg';
 
 
 const PostPage = () => {
+    
     const FormList = (props) => {
         return (
             <styled.formListContainer>
@@ -32,13 +34,56 @@ const PostPage = () => {
             </styled.formListContainer>
         )
     }
+    const [content, setContent] = useState("");
+    const [title, setTitle] = useState("");
+    const [userId, setUserId] = useState("user250");
+
+    const onTitleHandler=(e)=>{
+        setTitle(e.target.value);
+    }
+    const onContentHandler=(e)=>{
+        setContent(e.target.value);
+    }
+
+    const Submit = () => {
+        console.log(region, content, product, title, userId);
+        const response = axios.post(
+          `http://localhost:8080/api/products?areaCategory=${region}&content=${content}&productCategory=${product}&title=${title}&userId=${userId}`,
+          {
+            "areaCategory": region,
+            "content": content,
+            "productCategory": product,
+            "title": title,
+            "userId":userId
+          },
+          {
+            headers: {
+              // 'accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          }
+        )
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            // navigateToMainPage();
+            // if (response.data.data.accessToken) {
+            //   localStorage.setItem('login-token', response.data.data.accessToken);
+            // }
+          })
+          .catch(function (error) {
+            console.log("1111");
+            console.log(error);
+            
+          });
+      }
+
     const [product, setProduct] = useState("product")
     const SelectProductCategory =(e) =>{
         setProduct(e.target.id)
         console.log(e.target.id)
     }
 
-    const category=[[clothes,"Clothes"],[sports,"Sports / Leisure"], [device,"Degital Device"], [baby,"Baby"], [food,"Food"], [furniture, "Furniture"]]
+    const category=[[clothes,"CLOTHES"],[sports,"SPORTS"], [device,"DIGITAL"], [baby,"BABY"], [food,"FOOD"], [furniture, "FURNITURE"]]
 
     const CategoryList = () => {
         return(
@@ -59,7 +104,7 @@ const PostPage = () => {
         console.log(e.target.id)
     }
 
-    const regionCategory=["서울","경기","인천", "경북"]
+    const regionCategory=["SEOUL","BUSAN","INCHEON", "GWANGJU","ULSAN"]
 
     const RegionCategoryList = () => {
         return(
@@ -112,12 +157,12 @@ const PostPage = () => {
                 <styled.postForms>
                     <styled.title>상품명 & 내용</styled.title>
                     <styled.postForm>
-                        <text className='title'>상품명</text>
-                        <text className='titleE'>product name</text>
-                        <input className='inputt'></input>
-                        <text className='title'>내용</text>
-                        <text className='titleE'>content</text>
-                        <input className='contentInput'></input>
+                        <div className='title'>상품명</div>
+                        <div className='titleE'>product name</div>
+                        <input className='input' value={title} onChange={onTitleHandler}></input>
+                        <div className='title' >내용</div>
+                        <div className='titleE'>content</div>
+                        <input className='contentInput' value={content} onChange={onContentHandler}></input>
                     </styled.postForm>
 
                     <styled.title>사진</styled.title>
@@ -139,9 +184,8 @@ const PostPage = () => {
                         </styled.regionCategoryContainer>
                     </styled.postForm>
                 </styled.postForms>
-
             </styled.body>
-
+            <styled.submitButton onClick={Submit}>등록하기</styled.submitButton>
         </styled.container>
     );
 };
