@@ -13,25 +13,42 @@ import arrowRight from '../../assets/arrowRight.png'
 
 import Header from '../../components/Header';
 import Category from '../../components/Category';
+import data from "../../pages/Detailpage/data.json"
 
 const DetailPage = () => {
+    const [slideIndex, setSlideIndex] = useState(0);
+
+    const ProductList=()=>{
+        return (
+            data.products.map(product=>(
+                <styled.footerImage key={product.name}>
+                        <img src={otherProductImage}/>
+                        <span className='otherProductName'>{product.name}</span>
+                </styled.footerImage>
+            ))
+        )
+    }   
+
+    const slideRight=()=>{
+        console.log(slideIndex)
+        if(slideIndex==3){
+            setSlideIndex(0);
+        }else{
+            setSlideIndex(slideIndex+1);
+        }   
+    }
+
+    const slideLeft=()=>{
+        console.log(slideIndex)
+        if(slideIndex==3 || slideIndex==0){
+            setSlideIndex(0);
+        }else{
+            setSlideIndex(slideIndex-1);
+        }   
+    }
+
     return(
         <styled.container>
-            {/* <styled.headerContainer>
-                <styled.logoImage src={logo}/>
-                <styled.customInput></styled.customInput>
-                <styled.hearderButton><styled.headerButtonImage className='user' src={user}/></styled.hearderButton>
-                <styled.hearderButton><styled.headerButtonImage className='bucket' src={bucket}/></styled.hearderButton>
-                <styled.hearderButton><styled.headerButtonImage className='heart'src={heart}/></styled.hearderButton>
-            </styled.headerContainer> */}
-
-            {/* <styled.navContainer>
-                <styled.navButton>HOME</styled.navButton>
-                <styled.navButton>CHATS</styled.navButton>
-                <styled.navButton>ABOUT US</styled.navButton>
-                <styled.navButton>COMMUNITY</styled.navButton>
-                <styled.navButton>MY PAGE</styled.navButton>
-            </styled.navContainer> */}
             
             <Header />
             <Category />
@@ -44,9 +61,9 @@ const DetailPage = () => {
                 <img src ={detailImage3}/>
                 <styled.textContainer>
                     <div className='textBox'>
-                        <text className='name'>Checked Duvet Cover Set<br></br></text>
-                        <text className='amount'>Amount : 1<br></br></text>
-                        <text>Light khaki green/white checks<br></br>Light khaki green/white checks<br></br>Light khaki green/white checks<br></br></text>
+                        <span className='name'>Checked Duvet Cover Set<br></br></span>
+                        <span className='amount'>Amount : 1<br></br></span>
+                        <span>Light khaki green/white checks<br></br>Light khaki green/white checks<br></br>Light khaki green/white checks<br></br></span>
                     </div>
                 
                     <div>
@@ -59,29 +76,21 @@ const DetailPage = () => {
                 </styled.textContainer>
             </styled.bodyContainer>
 
-            <styled.footerContainer>
-                <text className='footerTitle'>Other products from the same seller</text>
-                <styled.footerImageContainer>
-                    <img className='arrow' src={arrowLeft}/>
-                    <styled.footerImage>
-                        <img src={otherProductImage}/>
-                        <text className='otherProductName'>Flannel Duvet Cover Set</text>
-                    </styled.footerImage>
-                    <styled.footerImage>
-                        <img src={otherProductImage}/>
-                        <text className='otherProductName'>Flannel Duvet Cover Set</text>
-                    </styled.footerImage>
-                    <styled.footerImage>
-                        <img src={otherProductImage}/>
-                        <text className='otherProductName'>Flannel Duvet Cover Set</text>
-                    </styled.footerImage>
-                    <styled.footerImage>
-                        <img src={otherProductImage}/>
-                        <text className='otherProductName'>Flannel Duvet Cover Set</text>
-                    </styled.footerImage>
-                    <img className='arrow'src={arrowRight}/>
-                </styled.footerImageContainer>
-            </styled.footerContainer>
+            <styled.otherProductContainer>
+                <span className='footerTitle'>Other products from the same seller</span>
+                <styled.slideContainer>
+                    <img className='arrow' src={arrowLeft} onClick={slideLeft}/>
+                    <styled.showContainer>
+                        <styled.footerImageContainer  style={{
+                            transition: "all 500ms ease-in-out",
+                            transform: `translateX(${
+                                -1 * (410 * slideIndex)}px)`,}}>
+                            <ProductList/>
+                        </styled.footerImageContainer>
+                    </styled.showContainer>
+                    <img className='arrow'src={arrowRight} onClick={slideRight}/>
+                </styled.slideContainer>
+            </styled.otherProductContainer>
         </styled.container>
     
 

@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as styled from './styles';
 
 const Header = () => {
+    const navigate = useNavigate();
+    const navigateToMainPage = () => {
+        navigate('/mainpage');
+    }
+
     return (
         <styled.Header>
-            <styled.BarterMark>
+            <styled.BarterMark onClick={navigateToMainPage}>
                 <styled.BarterIcon />
                 <styled.BarterName>
                     <span>BARTER</span>
@@ -15,6 +21,7 @@ const Header = () => {
                 <span>All Categories</span>
                 <styled.UnderArrow />
                 <div id='VerticalLine' />
+                <styled.SearchInput></styled.SearchInput>
                 <styled.SearchIcon />
             </styled.SearchBox>
             <styled.Mypage />

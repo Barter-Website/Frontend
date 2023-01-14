@@ -28,5 +28,10 @@ export const CategoryList = styled.div`
         font-weight: 500;
         font-size: 16px;
         color: #323334;
+
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 `;
