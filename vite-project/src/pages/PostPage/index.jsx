@@ -14,8 +14,6 @@ import baby from '../../img/baby.svg';
 import food from '../../img/food.svg';
 import furniture from '../../img/furniture.svg';
 
-import Category from '../../components/Category';
-
 const PostPage = () => {
     const FormList = (props) => {
         return (
