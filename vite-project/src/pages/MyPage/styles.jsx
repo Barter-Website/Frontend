@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 export const container = styled.div`
     width:1920px;
+    color: black;
 `;
 
 export const headerContainer = styled.div`
@@ -143,43 +144,54 @@ export const editContainer = styled.div`
         border-radius:20px;
         border: 0px;
     }
-`;
-
-
-export const likeContainer = styled.div`
-    width:1729px;
-    margin:auto;
-    margin-bottom:190px;
-    .likeTitle{
-        font-size:32px;
-        margin-left:75px;
+    input{
+        padding-left:15px;
+        font-size:20px;
     }
 `;
-export const likeImageContainer = styled.div`
+
+export const likeContainer = styled.div`
+    .title{
+        margin-left:155px;
+        font-size:32px;
+    }
+`;
+
+export const slideContainer = styled.div`
+    margin-left:95px;
     display:flex;
-    justify-content: space-between;
-    margin-top:50px;
+    .footerTitle{
+        margin-left:60px;
+        font-size:32px;
+    }
+    .arrow{
+        margin-top:250px;
+        width:27px;
+        height:53px;
+        cursor:pointer;
+    }
+    color: black;
+`;
+export const imageContainer = styled.div`
+    display:flex;
     .otherProductName{
         text-align:center;
     }
-    .arrowLeft{
-        width:27px;
-        height:53px;
-        margin:auto;
-        margin-right:32px;
-        margin-left:0px;
-    }
-    .arrowRight{
-        width:27px;
-        height:53px;
-        margin:auto;
-        margin-right:0px;
-        margin-left:32px;
-    }
+
 `;
-export const likeImage = styled.div`
-    width:382px;
+
+export const showContainer = styled.div`
+    overflow:hidden;
+    display:flex;
+    margin-top:50px;
+    width:1640px;
+    height:700px;
+`
+export const listImage = styled.div`
+    width:380px;
     height:455px;
+    margin-right:15px;
+    margin-left:15px;
 `;
 
 export const historyContainer = styled.div`
