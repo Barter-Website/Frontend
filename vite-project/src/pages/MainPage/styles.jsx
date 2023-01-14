@@ -120,6 +120,7 @@ export const CategoryItem = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor:pointer;
 
     > span {
         font-family: "Roboto-Regular";
