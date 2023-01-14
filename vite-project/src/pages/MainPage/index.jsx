@@ -30,20 +30,21 @@ const MainPage = () => {
     }, [datalist])
 
     const ProductItemList = () => {
-        console.log(datalist)
         return (
             datalist.map(product =>
             (
-                <ProductItem key={product.id} name={product.name} seller={product.seller} days={product.days} like={product.like} />
+                <ProductItem key={product.id} id={product.id} name={product.name} seller={product.seller} days={product.days} like={product.like} />
             ))
         )
     }
 
-    const toggleActive = (e) => {
-        
-    }
+    const ProductItem = ({ id, name, seller, days, like }) => {
+        const [isLike, setLike] = useState(like)
 
-    const ProductItem = ({ name, seller, days,like }) => {
+        const toggleClick = () => {
+            setLike(like => !!!like)
+        }
+
         return (
             <styled.RecentlyProductItem>
                 <styled.ItemImg>
@@ -55,7 +56,7 @@ const MainPage = () => {
                     <span>{days} Days ago</span>
                 </styled.FoodName>
                 <styled.LikeBtn>
-                    <styled.HeartIcon src={like?activeHeart:heart} onClick ={toggleActive}/>
+                    <styled.HeartIcon src={isLike ? activeHeart : heart} onClick={toggleClick} />
                 </styled.LikeBtn>
             </styled.RecentlyProductItem>
         )

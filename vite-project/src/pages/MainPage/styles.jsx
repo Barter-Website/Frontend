@@ -126,6 +126,7 @@ export const CategoryItem = styled.button`
         font-size: 20px;
         font-weight: 400;
         margin-top: 30px;
+        color: black;
     }
 `;
 

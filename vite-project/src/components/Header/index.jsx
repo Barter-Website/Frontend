@@ -8,7 +8,7 @@ const Header = () => {
         navigate('/mainpage');
     }
     const navigateToMyPage = () => {
-        navigate('/mainpage');
+        navigate('/mypage');
     }
 
     return (

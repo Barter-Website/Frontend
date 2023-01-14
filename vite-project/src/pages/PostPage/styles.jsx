@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const container  = styled.div`
+export const container = styled.div`
     width:1920px;
-`;  
+`;
 
 export const body = styled.div`
     display:flex;
@@ -10,7 +10,7 @@ export const body = styled.div`
     color: black;
 `;
 
-export const formListContainer= styled.div`
+export const formListContainer = styled.div`
     .selected{
         border:2px solid #4E60FF;
     }
@@ -41,7 +41,7 @@ export const iconBox = styled.div`
         margin:8px;
     }
 `;
-export const textBox =styled.div`
+export const textBox = styled.div`
     display:flex;
     flex-direction:column;
     .formTitle{
@@ -69,6 +69,7 @@ export const categoryList = styled.button`
     border-radius:18px;
     margin-left:60px;
     margin-top:30px;
+    color: black;
     cursor:pointer;
     img{
         width:35px;
@@ -149,12 +150,17 @@ export const postForm = styled.div`
         background-color: white;
         color: black;
     }
+
+    .uploadedImg{
+        width: 350px;
+        height: auto;
+    }
 `;
 
 
 export const imgInput = styled.div`
     width:926px;
-    height:413px;
+    height:400px;
 
     border-radius:10px;
     border:1px solid #C7C8D2;
@@ -163,6 +169,11 @@ export const imgInput = styled.div`
     text-align:center;
     line-height:413px;
     font-size:14px;
+
+    display: flex;
+    align-items: center;
+
+    overflow-y: scroll;
 `;
 
 export const categoryContainer =styled.div`

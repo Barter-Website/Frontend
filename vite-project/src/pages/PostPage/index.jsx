@@ -71,6 +71,7 @@ const PostPage = () => {
 
     const [showImages, setShowImages] = useState([]);
 
+
     // 이미지 상대경로 저장
     const handleAddImages = (event) => {
         const imageLists = event.target.files;
