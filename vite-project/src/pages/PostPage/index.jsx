@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as styled from './styles';
+import axios from 'axios';
 
 import Header from '../../components/Header';
 import contentIcon from '../../assets/content.svg';
@@ -14,7 +15,10 @@ import baby from '../../img/baby.svg';
 import food from '../../img/food.svg';
 import furniture from '../../img/furniture.svg';
 
+
+
 const PostPage = () => {
+    
     const FormList = (props) => {
         return (
             <styled.formListContainer>
@@ -30,19 +34,62 @@ const PostPage = () => {
             </styled.formListContainer>
         )
     }
+    const [content, setContent] = useState("");
+    const [title, setTitle] = useState("");
+    const [userId, setUserId] = useState("user250");
+
+    const onTitleHandler=(e)=>{
+        setTitle(e.target.value);
+    }
+    const onContentHandler=(e)=>{
+        setContent(e.target.value);
+    }
+
+    const Submit = () => {
+        console.log(region, content, product, title, userId);
+        const response = axios.post(
+          `http://localhost:8080/api/products?areaCategory=${region}&content=${content}&productCategory=${product}&title=${title}&userId=${userId}`,
+          {
+            "areaCategory": region,
+            "content": content,
+            "productCategory": product,
+            "title": title,
+            "userId":userId
+          },
+          {
+            headers: {
+              // 'accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          }
+        )
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            // navigateToMainPage();
+            // if (response.data.data.accessToken) {
+            //   localStorage.setItem('login-token', response.data.data.accessToken);
+            // }
+          })
+          .catch(function (error) {
+            console.log("1111");
+            console.log(error);
+            
+          });
+      }
+
     const [product, setProduct] = useState("product")
     const SelectProductCategory =(e) =>{
         setProduct(e.target.id)
         console.log(e.target.id)
     }
 
-    const category=[[clothes,"Clothes"],[sports,"Sports / Leisure"], [device,"Degital Device"], [baby,"Baby"], [food,"Food"], [furniture, "Furniture"]]
+    const category=[[clothes,"CLOTHES"],[sports,"SPORTS"], [device,"DIGITAL"], [baby,"BABY"], [food,"FOOD"], [furniture, "FURNITURE"]]
 
     const CategoryList = () => {
         return(
             category.map(c =>
                 (
-                    <styled.categoryList id={c[1]} onClick={SelectProductCategory}>
+                    <styled.categoryList id={c[1]} onClick={SelectProductCategory} className={(c[1]==product)?"selected":""}>
                         <img src={c[0]}/>
                         <text>{c[1]}</text>
                     </styled.categoryList>
@@ -53,17 +100,17 @@ const PostPage = () => {
 
     const [region, setRegion] = useState("region")
     const SelectRegionCategory =(e) =>{
-        setProduct(e.target.id)
+        setRegion(e.target.id)
         console.log(e.target.id)
     }
 
-    const regionCategory=["서울","경기","인천", "경북"]
+    const regionCategory=["SEOUL","BUSAN","INCHEON", "GWANGJU","ULSAN"]
 
     const RegionCategoryList = () => {
         return(
             regionCategory.map(r =>
                 (
-                    <styled.regionCategory id={r} onClick={SelectRegionCategory}>{r}</styled.regionCategory>
+                    <styled.regionCategory id={r} onClick={SelectRegionCategory} className={(r==region)?"selected":""}>{r}</styled.regionCategory>
                     
                 ))
         )
@@ -94,6 +141,7 @@ const PostPage = () => {
         setShowImages(showImages.filter((_, index) => index !== id));
     };
 
+
     return (
         <styled.container>
             <Header />
@@ -102,19 +150,19 @@ const PostPage = () => {
                 <styled.formLists>
                     <styled.title>상품 등록</styled.title>
                     <FormList icon={contentIcon} formTitle={'상품명 & 내용'} formTitleE={'product name & content'} selected={true} />
-                    <FormList icon={photoIcon} formTitle={'사진'} formTitleE={'photos'} selected={false} />
+                    <FormList icon={photoIcon} formTitle={'사진'} formTitleE={'photos'} selected={false}/>
                     <FormList icon={categoryIcon} formTitle={'카테고리'} formTitleE={'category'} selected={false} />
                 </styled.formLists>
 
                 <styled.postForms>
                     <styled.title>상품명 & 내용</styled.title>
                     <styled.postForm>
-                        <text className='title'>상품명</text>
-                        <text className='titleE'>product name</text>
-                        <input className='inputt'></input>
-                        <text className='title'>내용</text>
-                        <text className='titleE'>content</text>
-                        <input className='contentInput'></input>
+                        <div className='title'>상품명</div>
+                        <div className='titleE'>product name</div>
+                        <input className='input' value={title} onChange={onTitleHandler}></input>
+                        <div className='title' >내용</div>
+                        <div className='titleE'>content</div>
+                        <input className='contentInput' value={content} onChange={onContentHandler}></input>
                     </styled.postForm>
 
                     <styled.title>사진</styled.title>
@@ -136,9 +184,8 @@ const PostPage = () => {
                         </styled.regionCategoryContainer>
                     </styled.postForm>
                 </styled.postForms>
-
             </styled.body>
-
+            <styled.submitButton onClick={Submit}>등록하기</styled.submitButton>
         </styled.container>
     );
 };

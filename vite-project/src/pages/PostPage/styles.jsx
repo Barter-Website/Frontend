@@ -209,3 +209,16 @@ export const regionCategory = styled.button`
     font-weight:bold;
     margin-bottom:50px;
 `;
+
+export const submitButton = styled.button`
+    width:1060px;
+    height:80px;
+    border:1px solid #4E60FF;
+    border-radius:8px;
+    font-weight:bold;
+    margin-bottom:50px;
+    background-color:#4E60FF;
+    color:#ffffff;
+    margin-left:720px;
+
+`;

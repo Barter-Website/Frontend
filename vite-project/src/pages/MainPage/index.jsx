@@ -54,13 +54,16 @@ const MainPage = () => {
     }, [])
 
     const ProductItemList = () => {
+        console.log(datalist)
         return (
             datalist.map(product =>
             (
+
                 <ProductItem id={product.id} title={product.title} name={product.title} seller={product.userName} category={product.areaCategory} like={product.like} />
             ))
         )
     }
+
 
     const ProductItem = ({ id, name, seller, category, like }) => {
         const [isLike, setLike] = useState(like)
@@ -68,7 +71,6 @@ const MainPage = () => {
         const toggleClick = () => {
             setLike(like => !!!like)
         }
-
         return (
             <styled.RecentlyProductItem>
                 <styled.ItemImg>
@@ -80,7 +82,7 @@ const MainPage = () => {
                     <span>{category}</span>
                 </styled.FoodName>
                 <styled.LikeBtn>
-                    <styled.HeartIcon src={isLike ? activeHeart : heart} onClick={toggleClick} />
+                    <styled.HeartIcon src={isLike ? activeHeart : heart} onClick ={toggleClick}/>
                 </styled.LikeBtn>
             </styled.RecentlyProductItem>
         )

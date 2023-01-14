@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
 import * as styled from './styles';
 import logo from '../../assets/logo.png'
 import user from '../../assets/user.svg'
@@ -17,6 +18,27 @@ import data from "../../pages/Detailpage/data.json"
 
 const DetailPage = () => {
     const [slideIndex, setSlideIndex] = useState(0);
+    const [content, setContent] = useState("");
+    const [title, setTitle] = useState("");
+
+    const productGet = () => {
+        const response = axios.get(
+          `http://localhost:8080/api/products/2`)
+
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            setContent(response.data.content)
+            setTitle(response.data.title)
+            // if (response.data.data.accessToken) {
+            //   localStorage.setItem('login-token', response.data.data.accessToken);
+            // }
+          })
+        }
+
+
+    useEffect(()=>{
+        productGet()
+    })
 
     const ProductList=()=>{
         return (
@@ -61,9 +83,8 @@ const DetailPage = () => {
                 <img src ={detailImage3}/>
                 <styled.textContainer>
                     <div className='textBox'>
-                        <span className='name'>Checked Duvet Cover Set<br></br></span>
-                        <span className='amount'>Amount : 1<br></br></span>
-                        <span>Light khaki green/white checks<br></br>Light khaki green/white checks<br></br>Light khaki green/white checks<br></br></span>
+                        <span className='name'>{title}<br></br></span>
+                        <span>{content}</span>
                     </div>
                 
                     <div>
