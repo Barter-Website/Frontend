@@ -9,6 +9,7 @@ import arrowRight from '../../assets/arrowRight.png'
 import exchange from '../../assets/exchange.png'
 import data from '../MyPage/data.json'
 import history from '../MyPage/history.json'
+import Category from '../../components/Category';
 
 const MyPage = () => {
     const [slideIndex, setSlideIndex] = useState(0);
@@ -63,13 +64,7 @@ const MyPage = () => {
     return(
         <styled.container>
             <Header/>
-            <styled.navContainer>
-                <styled.navButton>HOME</styled.navButton>
-                <styled.navButton>CHATS</styled.navButton>
-                <styled.navButton>ABOUT US</styled.navButton>
-                <styled.navButton>COMMUNITY</styled.navButton>
-                <styled.navButton>MY PAGE</styled.navButton>
-            </styled.navContainer>
+            <Category />
 
             <styled.bodyContainer>
                 <styled.infoContainer>

@@ -58,24 +58,27 @@ export const textBox = styled.div`
 `;
 
 
-export const categoryList = styled.div`
+export const categoryList = styled.button`
     display:flex;
+    background-color:transparent;
     flex-direction: column;
-    text-align: center;
+    justify-content:center;
     width:218px;
     height:170px;
     border:1px solid #E6E6E6;
     border-radius:18px;
-    margin-left:37px;
+    margin-left:60px;
     margin-top:30px;
+    cursor:pointer;
     img{
         width:35px;
         height:35px;
-        margin-top:39px;
-        margin-bottom:30px;
+        margin:auto;
     }
     text{
         font-size:20px;
+        margin-bottom:20px;
+        margin-left:20px;
     }
 `;
 
@@ -169,9 +172,10 @@ export const imgInput = styled.div`
     overflow-y: scroll;
 `;
 
-export const categoryContainer = styled.div`
-    display:flex;
-    flex-direction:vertical;
+export const categoryContainer =styled.div`
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    // flex-direction:vertical;
     .selected{
         background-color:#4E60FF;
         color:#ffffff;

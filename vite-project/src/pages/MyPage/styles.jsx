@@ -144,6 +144,10 @@ export const editContainer = styled.div`
         border-radius:20px;
         border: 0px;
     }
+    input{
+        padding-left:15px;
+        font-size:20px;
+    }
 `;
 
 export const likeContainer = styled.div`

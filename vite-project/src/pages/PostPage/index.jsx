@@ -6,8 +6,13 @@ import contentIcon from '../../assets/content.svg';
 import photoIcon from '../../assets/photo.svg';
 import categoryIcon from '../../assets/category.svg';
 import fruitsIcon from '../../assets/fruitsIcon.svg';
-
 import Category from '../../components/Category';
+import clothes from '../../img/clothes.svg';
+import sports from '../../img/sports.svg';
+import device from '../../img/device.svg';
+import baby from '../../img/baby.svg';
+import food from '../../img/food.svg';
+import furniture from '../../img/furniture.svg';
 
 const PostPage = () => {
     const FormList = (props) => {
@@ -25,14 +30,17 @@ const PostPage = () => {
             </styled.formListContainer>
         )
     }
+    const category=[clothes,sports,device,baby,food,furniture]
 
-    const CategoryList = (props) => {
-        return (
-            <styled.categoryList>
-                <img src={fruitsIcon} />
-                <text>Fruits & Veges</text>
-            </styled.categoryList>
-
+    const CategoryList = () => {
+        return(
+            category.map(c =>
+                (
+                    <styled.categoryList>
+                        <img src={c}/>
+                        <text>Fruits & Veges</text>
+                    </styled.categoryList>
+                ))
         )
     }
 
@@ -94,16 +102,7 @@ const PostPage = () => {
                     <styled.postForm>
                         <text className='title'>상품 카테고리</text>
                         <styled.categoryContainer>
-                            <CategoryList />
-                            <CategoryList />
-                            <CategoryList />
-                            <CategoryList />
-                        </styled.categoryContainer>
-                        <styled.categoryContainer>
-                            <CategoryList />
-                            <CategoryList />
-                            <CategoryList />
-                            <CategoryList />
+                            <CategoryList/>
                         </styled.categoryContainer>
                         <text className='title'>지역 카테고리</text>
                         <styled.categoryContainer>

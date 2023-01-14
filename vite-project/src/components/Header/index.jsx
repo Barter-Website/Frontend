@@ -7,6 +7,9 @@ const Header = () => {
     const navigateToMainPage = () => {
         navigate('/mainpage');
     }
+    const navigateToMyPage = () => {
+        navigate('/mypage');
+    }
 
     return (
         <styled.Header>
@@ -24,7 +27,7 @@ const Header = () => {
                 <styled.SearchInput></styled.SearchInput>
                 <styled.SearchIcon />
             </styled.SearchBox>
-            <styled.Mypage />
+            <styled.Mypage onClick={navigateToMyPage}/>
             <styled.Basket />
             <styled.Like />
         </styled.Header>
