@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import * as styled from './styles';
 import hand_money from '../../assets/hand_money.png'
 import hand_refuse from '../../assets/hand_refuse.jpg'
@@ -12,6 +13,41 @@ const SignInPage = () => {
   }
   const navigateToSignUpPage = () => {
     navigate('/');
+  }
+
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onIdHandler = (e) => {
+    setId(e.target.value);
+  }
+  const onPasswordHandler = (e) => {
+    setPassword(e.target.value);
+  }
+
+  const isLogin = () => {
+    const response = axios.post(
+      'http://localhost:8080/api/user/user/login',
+      {
+        "id": id,
+        "password": password
+      },
+      {
+        headers: {
+          'accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        // if (response.data.data.accessToken) {
+        //   localStorage.setItem('login-token', response.data.data.accessToken);
+        // }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   return (
