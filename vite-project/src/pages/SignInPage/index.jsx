@@ -26,6 +26,7 @@ const SignInPage = () => {
   }
 
   const isLogin = () => {
+    console.log(">>>>>>>>>>>>>>>>>>",id, password);
     const response = axios.post(
       'http://localhost:8080/api/user/user/login',
       {
@@ -34,7 +35,7 @@ const SignInPage = () => {
       },
       {
         headers: {
-          'accept': 'application/json',
+          // 'accept': 'application/json',
           'Content-Type': 'application/json'
         }
       }
@@ -46,6 +47,7 @@ const SignInPage = () => {
         // }
       })
       .catch(function (error) {
+        console.log("1111");
         console.log(error);
       });
   }
@@ -68,16 +70,16 @@ const SignInPage = () => {
           <h1>로그인</h1>
           <div className='instruction'>로그인 후 서비스를 이용해주세요</div>
           <div className='inputTitle'>아이디</div>
-          <input className='idInput'></input>
+          <input className='idInput' value={id} onChange={onIdHandler}></input>
           <div className='inputTitle'>비밀번호</div>
-          <div className='pwInputContainer'>
+          <div className='pwInputContainer' value={password} onChange={onPasswordHandler}>
             <input className='eyeoff'></input>
             <div className='eyeoffImage'>
               <img src={eyeoff} />
             </div>
           </div>
           <div className='findPw'>비밀번호 찾기</div>
-          <button onClick={navigateToMainPage}>로그인</button>
+          <button onClick={() => { isLogin(); navigateToMainPage();}}>로그인</button>
           <div className='signUpContainer'>
             <div className='signUpQ'>아직 회원이 아니신가요?</div>
             <div className='signUp' onClick={navigateToSignUpPage}>회원가입</div>
