@@ -28,7 +28,7 @@ const SignInPage = () => {
   const isLogin = () => {
     console.log(">>>>>>>>>>>>>>>>>>",id, password);
     const response = axios.post(
-      'http://localhost:8080/api/user/user/login',
+      'http://localhost:8080/api/user/login',
       {
         "id": id,
         "password": password
